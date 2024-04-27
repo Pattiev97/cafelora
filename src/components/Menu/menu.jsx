@@ -1,4 +1,5 @@
 import { Drink } from '../Drink/drink';
+import { Layer } from '../Layer/layer';
 import './menu.css';
 
 export const Menu = () => {
@@ -14,16 +15,6 @@ export const Menu = () => {
           name="Romano"
           ordered={false}
           image="http://localhost:4000/assets/cups/romano.png"
-          layers={[
-            {
-              color: '#fbdf5b',
-              label: 'citrón',
-            },
-            {
-              color: '#613916',
-              label: 'espresso',
-            },
-          ]}
         />
         <div className="order-detail">
           <a href="/order.html">Detail objednávky</a>
