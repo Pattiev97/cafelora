@@ -18,5 +18,16 @@ document.querySelector('#root').innerHTML = render(
       <Contact />
     </main>
     <Footer />
-  </div>
+  </div>,
 );
+
+const navBtn = document.querySelector('.nav-btn');
+const rollNav = document.querySelector('.rollout-nav');
+
+navBtn.addEventListener('click', () => {
+  rollNav.classList.toggle('nav-closed');
+});
+
+rollNav.addEventListener('click', () => {
+  rollNav.classList.toggle('nav-closed');
+});
