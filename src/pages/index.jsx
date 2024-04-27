@@ -22,7 +22,7 @@ document.querySelector('#root').innerHTML = render(
     <Header />
     <main>
       <Banner />
-      <Menu drinks={drinks}/>
+      <Menu drinks={drinks} />
       <Gallery />
       <Contact />
     </main>
@@ -39,4 +39,24 @@ navBtn.addEventListener('click', () => {
 
 rollNav.addEventListener('click', () => {
   rollNav.classList.toggle('nav-closed');
+});
+
+const form = document.querySelectorAll('.drink__controls');
+const orderDrink = async (e) => {
+  e.preventDefault();
+  const id = e.target.dataset.id;
+  await fetch(`http://localhost:4000/api/drinks/${id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify([
+      { op: 'replace', path: '/ordered', value: !drinks[id] },
+    ]),
+  });
+  window.location.reload();
+};
+
+form.forEach((item) => {
+  item.addEventListener('submit', orderDrink);
 });
